@@ -1,25 +1,36 @@
 import RegionCard from "@/components/RegionCard";
+import RegionScene from "@/components/RegionScene";
 import { regions } from "@/lib/regions";
 
 export default function Home() {
   return (
     <>
-      <section className="border-b border-black/10 bg-gradient-to-b from-zinc-50 to-white dark:border-white/10 dark:from-zinc-950 dark:to-black">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+      <section className="relative overflow-hidden border-b border-black/10 text-white dark:border-white/10">
+        <RegionScene
+          kind="hills"
+          colors={["#0b6e4f", "#0b2545"]}
+          landmark="cypress"
+          className="absolute inset-0 h-full w-full"
+        />
+        <span
+          className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/55 via-black/10 to-transparent"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
+          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-300">
             20 regioni, un solo racconto
           </p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
             Places of Italy
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
             Il portale che racconta l&apos;Italia una regione alla volta: montagne,
             coste, borghi e città, con uno sguardo dedicato a chi ogni giorno
             promuove il proprio territorio sui social.
           </p>
           <a
             href="#regioni"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-950 transition-colors hover:bg-zinc-200"
           >
             Esplora le regioni
           </a>
