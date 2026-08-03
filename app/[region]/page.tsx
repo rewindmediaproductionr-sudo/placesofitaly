@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRegionBySlug, regions } from "@/lib/regions";
+import RegionScene from "@/components/RegionScene";
 
 export function generateStaticParams() {
   return regions.map((region) => ({ region: region.slug }));
@@ -44,16 +45,23 @@ export default async function RegionPage({
     notFound();
   }
 
-  const [from, to] = region.gradient;
   const socialEntries = Object.entries(region.social ?? {});
 
   return (
     <article>
-      <div
-        className="flex min-h-[320px] flex-col justify-end px-6 py-16 text-white"
-        style={{ backgroundImage: `linear-gradient(150deg, ${from}, ${to})` }}
-      >
-        <div className="mx-auto w-full max-w-4xl">
+      <div className="relative flex min-h-[380px] flex-col justify-end overflow-hidden px-6 py-16 text-white">
+        <RegionScene
+          kind={region.visual.kind}
+          colors={region.gradient}
+          landmark={region.visual.landmark}
+          water={region.visual.water}
+          className="absolute inset-0 h-full w-full"
+        />
+        <span
+          className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
+          aria-hidden
+        />
+        <div className="relative mx-auto w-full max-w-4xl">
           <Link href="/" className="text-sm text-white/70 hover:text-white">
             ← Tutte le regioni
           </Link>
