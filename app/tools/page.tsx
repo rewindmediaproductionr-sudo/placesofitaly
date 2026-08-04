@@ -47,10 +47,10 @@ export default function ToolsPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
-      <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+      <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-50">
         Area partner · pagina non indicizzata
       </p>
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
         Kit per il circuito Places of Italy
       </h1>
       <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
@@ -61,7 +61,7 @@ export default function ToolsPage() {
       </p>
 
       <section className="mt-14">
-        <h2 className="text-xl font-semibold tracking-tight">Kit social media</h2>
+        <h2 className="font-display text-xl font-semibold tracking-tight">Kit social media</h2>
 
         <div className="mt-5">
           <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Logo</p>
@@ -76,7 +76,7 @@ export default function ToolsPage() {
             <a
               href="/brand/logo.svg"
               download
-              className="ml-auto inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium hover:border-black/30 dark:border-white/15 dark:hover:border-white/40"
+              className="ml-auto inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition-colors hover:border-brand-500 hover:text-brand-600 dark:border-white/15 dark:hover:border-brand-500 dark:hover:text-white"
             >
               Scarica SVG
             </a>
@@ -104,7 +104,7 @@ export default function ToolsPage() {
             {HASHTAGS.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-black/10 px-3 py-1 text-sm font-mono dark:border-white/15"
+                className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-mono text-brand-600 dark:bg-zinc-900 dark:text-brand-50"
               >
                 {tag}
               </span>
@@ -118,7 +118,7 @@ export default function ToolsPage() {
             {CAPTION_TEMPLATES.map((template) => (
               <li
                 key={template}
-                className="rounded-xl border border-black/10 px-4 py-3 text-sm text-zinc-700 dark:border-white/10 dark:text-zinc-300"
+                className="rounded-2xl bg-zinc-100 px-4 py-3 text-sm text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
               >
                 {template}
               </li>
@@ -128,7 +128,7 @@ export default function ToolsPage() {
       </section>
 
       <section className="mt-14">
-        <h2 className="text-xl font-semibold tracking-tight">Canali social per regione</h2>
+        <h2 className="font-display text-xl font-semibold tracking-tight">Canali social per regione</h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
           Stato di attivazione dei canali ufficiali collegati a ogni regione
           sul portale.
@@ -159,7 +159,7 @@ export default function ToolsPage() {
       </section>
 
       <section className="mt-14">
-        <h2 className="text-xl font-semibold tracking-tight">Linee guida per collaboratori</h2>
+        <h2 className="font-display text-xl font-semibold tracking-tight">Linee guida per collaboratori</h2>
         <ul className="mt-4 space-y-2">
           {GUIDELINES.map((rule) => (
             <li key={rule} className="flex gap-3 text-sm text-zinc-700 dark:text-zinc-300">
@@ -171,7 +171,7 @@ export default function ToolsPage() {
       </section>
 
       <section className="mt-14 rounded-2xl border border-black/10 bg-zinc-50 p-8 dark:border-white/10 dark:bg-zinc-950">
-        <h2 className="text-xl font-semibold tracking-tight">Condividi i tuoi contenuti</h2>
+        <h2 className="font-display text-xl font-semibold tracking-tight">Condividi i tuoi contenuti</h2>
         <p className="mt-3 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
           Gestisci il canale social di una regione o hai contenuti da proporre
           per il portale? Scrivici indicando la regione, i link ai tuoi canali
@@ -180,7 +180,7 @@ export default function ToolsPage() {
         </p>
         <a
           href="mailto:collabora@placesofitaly.it?subject=Ingresso%20nel%20circuito%20Places%20of%20Italy"
-          className="mt-5 inline-flex items-center rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+          className="mt-5 inline-flex items-center rounded-full bg-brand-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-500"
         >
           Scrivici via email
         </a>
