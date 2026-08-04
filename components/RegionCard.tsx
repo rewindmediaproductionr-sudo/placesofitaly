@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Region } from "@/lib/regions";
 import RegionScene from "@/components/RegionScene";
@@ -8,13 +9,23 @@ export default function RegionCard({ region }: { region: Region }) {
       href={`/${region.slug}`}
       className="group relative flex h-56 flex-col justify-end overflow-hidden rounded-2xl p-5 text-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"
     >
-      <RegionScene
-        kind={region.visual.kind}
-        colors={region.gradient}
-        landmark={region.visual.landmark}
-        water={region.visual.water}
-        className="absolute inset-0 h-full w-full"
-      />
+      {region.photo ? (
+        <Image
+          src={region.photo}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <RegionScene
+          kind={region.visual.kind}
+          colors={region.gradient}
+          landmark={region.visual.landmark}
+          water={region.visual.water}
+          className="absolute inset-0 h-full w-full"
+        />
+      )}
       <span
         className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/55 via-black/10 to-transparent"
         aria-hidden
