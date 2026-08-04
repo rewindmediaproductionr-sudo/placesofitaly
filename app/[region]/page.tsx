@@ -68,7 +68,7 @@ export default async function RegionPage({
           <p className="mt-4 text-sm font-medium uppercase tracking-widest text-white/70">
             Capoluogo: {region.capital}
           </p>
-          <h1 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
             {region.name}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/85">{region.tagline}</p>
@@ -77,19 +77,19 @@ export default async function RegionPage({
 
       <div className="mx-auto max-w-4xl px-6 py-16">
         <section>
-          <h2 className="text-xl font-semibold tracking-tight">Panoramica</h2>
+          <h2 className="font-display text-xl font-semibold tracking-tight">Panoramica</h2>
           <p className="mt-3 leading-relaxed text-zinc-700 dark:text-zinc-300">
             {region.description}
           </p>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-xl font-semibold tracking-tight">Da non perdere</h2>
+          <h2 className="font-display text-xl font-semibold tracking-tight">Da non perdere</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {region.highlights.map((highlight) => (
               <li
                 key={highlight}
-                className="rounded-xl border border-black/10 px-4 py-3 text-sm text-zinc-700 dark:border-white/10 dark:text-zinc-300"
+                className="rounded-2xl bg-zinc-100 px-4 py-3 text-sm text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
               >
                 {highlight}
               </li>
@@ -98,7 +98,7 @@ export default async function RegionPage({
         </section>
 
         <section className="mt-12">
-          <h2 className="text-xl font-semibold tracking-tight">
+          <h2 className="font-display text-xl font-semibold tracking-tight">
             Canali social di {region.name}
           </h2>
           {socialEntries.length > 0 ? (
@@ -109,7 +109,7 @@ export default async function RegionPage({
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium hover:border-black/30 dark:border-white/15 dark:hover:border-white/40"
+                    className="inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition-colors hover:border-brand-500 hover:text-brand-600 dark:border-white/15 dark:hover:border-brand-500 dark:hover:text-white"
                   >
                     {SOCIAL_LABELS[platform] ?? platform}
                   </a>

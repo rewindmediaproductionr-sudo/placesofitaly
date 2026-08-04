@@ -17,10 +17,10 @@ export default function Home() {
           aria-hidden
         />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-300">
+          <p className="text-sm font-semibold uppercase tracking-widest text-brand-50">
             20 regioni, un solo racconto
           </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-6xl">
             Places of Italy
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
@@ -30,7 +30,7 @@ export default function Home() {
           </p>
           <a
             href="#regioni"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-950 transition-colors hover:bg-zinc-200"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
           >
             Esplora le regioni
           </a>
@@ -39,7 +39,7 @@ export default function Home() {
 
       <section id="regioni" className="mx-auto max-w-6xl px-6 py-20">
         <div className="mb-10">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
             Tutte le regioni d&apos;Italia
           </h2>
           <p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -55,7 +55,7 @@ export default function Home() {
 
       <section className="border-t border-black/10 bg-zinc-50 dark:border-white/10 dark:bg-zinc-950">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
             Gestisci i canali social della tua regione?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
