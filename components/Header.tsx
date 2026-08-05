@@ -23,15 +23,15 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 transition-colors ${
         transparent
-          ? "border-b border-transparent bg-gradient-to-b from-black/45 via-black/15 to-transparent"
-          : "border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/80"
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-black/10 bg-white dark:border-white/10 dark:bg-black"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
           className={`flex items-center gap-2 font-display text-lg font-semibold tracking-tight transition-colors ${
-            transparent ? "text-white" : ""
+            transparent ? "text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]" : ""
           }`}
         >
           <span
@@ -43,7 +43,9 @@ export default function Header() {
         </Link>
         <nav
           className={`flex items-center gap-6 text-sm font-medium transition-colors ${
-            transparent ? "text-white/90" : "text-zinc-600 dark:text-zinc-300"
+            transparent
+              ? "text-white/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]"
+              : "text-zinc-600 dark:text-zinc-300"
           }`}
         >
           <Link
