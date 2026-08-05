@@ -220,6 +220,8 @@ export const regions: Region[] = [
     highlights: ["Etna", "Valle dei Templi di Agrigento", "Taormina", "Siracusa e Ortigia"],
     gradient: ["#c1440e", "#7a1f0a"],
     visual: { kind: "volcano" },
+    photo: "/regions/sicilia.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "toscana",
