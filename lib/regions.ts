@@ -23,6 +23,8 @@ export interface Region {
   gradient: [string, string];
   visual: RegionVisual;
   social?: SocialLinks;
+  photo?: string;
+  photoCredit?: string;
 }
 
 export const regions: Region[] = [

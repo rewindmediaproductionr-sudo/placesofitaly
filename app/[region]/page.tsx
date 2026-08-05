@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRegionBySlug, regions } from "@/lib/regions";
@@ -50,13 +51,24 @@ export default async function RegionPage({
   return (
     <article>
       <div className="relative flex min-h-[380px] flex-col justify-end overflow-hidden px-6 py-16 text-white">
-        <RegionScene
-          kind={region.visual.kind}
-          colors={region.gradient}
-          landmark={region.visual.landmark}
-          water={region.visual.water}
-          className="absolute inset-0 h-full w-full"
-        />
+        {region.photo ? (
+          <Image
+            src={region.photo}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <RegionScene
+            kind={region.visual.kind}
+            colors={region.gradient}
+            landmark={region.visual.landmark}
+            water={region.visual.water}
+            className="absolute inset-0 h-full w-full"
+          />
+        )}
         <span
           className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
           aria-hidden
@@ -72,6 +84,9 @@ export default async function RegionPage({
             {region.name}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/85">{region.tagline}</p>
+          {region.photoCredit && (
+            <p className="mt-6 text-xs text-white/60">Foto: {region.photoCredit}</p>
+          )}
         </div>
       </div>
 
