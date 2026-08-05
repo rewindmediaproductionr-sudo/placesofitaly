@@ -77,6 +77,8 @@ export const regions: Region[] = [
     highlights: ["Costiera Amalfitana", "Capri e Ischia", "Pompei ed Ercolano", "Napoli e il Vesuvio"],
     gradient: ["#c1440e", "#7a1f0a"],
     visual: { kind: "coast", landmark: "campanile" },
+    photo: "/regions/campania.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "emilia-romagna",
@@ -88,6 +90,8 @@ export const regions: Region[] = [
     highlights: ["Bologna e Parma", "Riviera Romagnola", "Food Valley (Parmigiano, Aceto Balsamico)", "Motor Valley di Maranello"],
     gradient: ["#7b2d26", "#4a1a15"],
     visual: { kind: "city", landmark: "towers" },
+    photo: "/regions/emilia-romagna.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "friuli-venezia-giulia",
@@ -125,6 +129,8 @@ export const regions: Region[] = [
     highlights: ["Cinque Terre", "Portofino e il Golfo del Tigullio", "Genova e il porto antico", "Sanremo e la riviera dei fiori"],
     gradient: ["#2e8b57", "#145a32"],
     visual: { kind: "coast", landmark: "terraces" },
+    photo: "/regions/liguria.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "lombardia",
@@ -149,6 +155,8 @@ export const regions: Region[] = [
     highlights: ["Urbino", "Riviera del Conero", "Ascoli Piceno", "Grotte di Frasassi"],
     gradient: ["#d98324", "#a35709"],
     visual: { kind: "coast", landmark: "hilltown" },
+    photo: "/regions/marche.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "molise",
@@ -249,6 +257,8 @@ export const regions: Region[] = [
     highlights: ["Assisi", "Orvieto", "Perugia", "Cascata delle Marmore"],
     gradient: ["#2e8b57", "#145a32"],
     visual: { kind: "hills", landmark: "hilltown" },
+    photo: "/regions/umbria.jpg",
+    photoCredit: "Wikimedia Commons",
   },
   {
     slug: "valle-d-aosta",
@@ -273,6 +283,8 @@ export const regions: Region[] = [
     highlights: ["Venezia e la Laguna", "Verona", "Dolomiti e Cortina d'Ampezzo", "Colline del Prosecco (Valdobbiadene)"],
     gradient: ["#0f6674", "#073b42"],
     visual: { kind: "city", landmark: "campanile", water: true },
+    photo: "/regions/veneto.jpg",
+    photoCredit: "Wikimedia Commons",
   },
 ];
 
