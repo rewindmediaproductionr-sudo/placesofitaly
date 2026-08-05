@@ -38,6 +38,8 @@ export const regions: Region[] = [
     highlights: ["Gran Sasso e Monti della Laga", "Parco Nazionale d'Abruzzo", "Costa dei Trabocchi", "Scanno e Sulmona"],
     gradient: ["#0b6e4f", "#06402b"],
     visual: { kind: "mountain" },
+    photo: "/regions/abruzzo.jpg",
+    photoCredit: "Marconeg, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "basilicata",
@@ -49,6 +51,8 @@ export const regions: Region[] = [
     highlights: ["Sassi di Matera", "Maratea e la costa tirrenica", "Dolomiti Lucane e il volo dell'angelo", "Parco del Pollino"],
     gradient: ["#b08968", "#6b4423"],
     visual: { kind: "hills", landmark: "sassi" },
+    photo: "/regions/basilicata.jpg",
+    photoCredit: "Nicola Paolicelli, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "calabria",
@@ -60,6 +64,8 @@ export const regions: Region[] = [
     highlights: ["Tropea e Capo Vaticano", "Costa degli Dei", "Parco Nazionale della Sila", "Aspromonte"],
     gradient: ["#1d4e89", "#0b2545"],
     visual: { kind: "coast" },
+    photo: "/regions/calabria.jpg",
+    photoCredit: "Stefanocaruso1984, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "campania",
@@ -93,6 +99,8 @@ export const regions: Region[] = [
     highlights: ["Trieste e il Golfo", "Dolomiti Friulane", "Aquileia e Grado", "Strada del vino Collio"],
     gradient: ["#0f6674", "#073b42"],
     visual: { kind: "coast" },
+    photo: "/regions/friuli-venezia-giulia.jpg",
+    photoCredit: "Edolind Thaqi, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "lazio",
@@ -104,6 +112,8 @@ export const regions: Region[] = [
     highlights: ["Roma e il Colosseo", "Villa d'Este e Villa Adriana a Tivoli", "Castelli Romani", "Ostia Antica"],
     gradient: ["#d98324", "#a35709"],
     visual: { kind: "city", landmark: "colosseum" },
+    photo: "/regions/lazio.jpg",
+    photoCredit: "Andrea Comisi, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "liguria",
@@ -126,6 +136,8 @@ export const regions: Region[] = [
     highlights: ["Milano", "Lago di Como", "Lago di Garda", "Valtellina e Alpi Orobie"],
     gradient: ["#1d4e89", "#0b2545"],
     visual: { kind: "lake" },
+    photo: "/regions/lombardia.jpg",
+    photoCredit: "Sat123, CC BY 3.0, Wikimedia Commons",
   },
   {
     slug: "marche",
