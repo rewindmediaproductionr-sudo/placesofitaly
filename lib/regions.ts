@@ -160,6 +160,8 @@ export const regions: Region[] = [
     highlights: ["Termoli e il borgo vecchio", "Tratturi e parchi naturali", "Isernia e i siti archeologici", "Riserva di Montedimezzo"],
     gradient: ["#0b6e4f", "#06402b"],
     visual: { kind: "hills" },
+    photo: "/regions/molise.jpg",
+    photoCredit: "Marco Di Nonno, CC BY-SA 3.0, Wikimedia Commons",
   },
   {
     slug: "piemonte",
@@ -171,6 +173,8 @@ export const regions: Region[] = [
     highlights: ["Torino", "Langhe, Roero e Monferrato", "Alpi e Monviso", "Lago Maggiore e Lago d'Orta"],
     gradient: ["#7b2d26", "#4a1a15"],
     visual: { kind: "mountain" },
+    photo: "/regions/piemonte.jpg",
+    photoCredit: "Megan Mallen, CC BY 2.0, Wikimedia Commons",
   },
   {
     slug: "puglia",
@@ -182,6 +186,8 @@ export const regions: Region[] = [
     highlights: ["Alberobello e i trulli", "Salento e Lecce", "Ostuni, la città bianca", "Polignano a Mare"],
     gradient: ["#0f6674", "#073b42"],
     visual: { kind: "coast", landmark: "trulli" },
+    photo: "/regions/puglia.jpg",
+    photoCredit: "P feliciati, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "sardegna",
@@ -193,6 +199,8 @@ export const regions: Region[] = [
     highlights: ["Costa Smeralda", "Cala Goloritzé e Golfo di Orosei", "Nuraghi e siti archeologici", "Alghero e la Costa Paradiso"],
     gradient: ["#1d4e89", "#0b2545"],
     visual: { kind: "coast" },
+    photo: "/regions/sardegna.jpg",
+    photoCredit: "Miticoandrei96, CC BY-SA 3.0, Wikimedia Commons",
   },
   {
     slug: "sicilia",
@@ -215,6 +223,8 @@ export const regions: Region[] = [
     highlights: ["Firenze", "Val d'Orcia e Chianti", "Siena e San Gimignano", "Pisa e la Torre"],
     gradient: ["#d98324", "#a35709"],
     visual: { kind: "hills", landmark: "cypress" },
+    photo: "/regions/toscana.jpg",
+    photoCredit: "lo.tangelini, CC BY-SA 2.0, Wikimedia Commons",
   },
   {
     slug: "trentino-alto-adige",
@@ -226,6 +236,8 @@ export const regions: Region[] = [
     highlights: ["Dolomiti", "Lago di Braies", "Bolzano e Trento", "Val Gardena e Alpe di Siusi"],
     gradient: ["#0b6e4f", "#06402b"],
     visual: { kind: "mountain", water: true },
+    photo: "/regions/trentino-alto-adige.jpg",
+    photoCredit: "Giuseppe Milo, CC BY 3.0, Wikimedia Commons",
   },
   {
     slug: "umbria",
@@ -248,6 +260,8 @@ export const regions: Region[] = [
     highlights: ["Monte Bianco (Courmayeur)", "Cervinia e il Cervino", "Castelli della Valle d'Aosta", "Parco Nazionale del Gran Paradiso"],
     gradient: ["#7b2d26", "#4a1a15"],
     visual: { kind: "mountain", landmark: "castle" },
+    photo: "/regions/valle-d-aosta.jpg",
+    photoCredit: "Diego Bonacina, CC BY-SA 4.0, Wikimedia Commons",
   },
   {
     slug: "veneto",
