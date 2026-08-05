@@ -1,16 +1,18 @@
+import Image from "next/image";
 import RegionCard from "@/components/RegionCard";
-import RegionScene from "@/components/RegionScene";
 import { regions } from "@/lib/regions";
 
 export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-black/10 text-white dark:border-white/10">
-        <RegionScene
-          kind="hills"
-          colors={["#0b6e4f", "#0b2545"]}
-          landmark="cypress"
-          className="absolute inset-0 h-full w-full"
+        <Image
+          src="/hero/home-hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <span
           className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/55 via-black/10 to-transparent"
