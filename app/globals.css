@@ -16,7 +16,7 @@
   --color-brand-500: var(--color-brand-500);
   --color-brand-600: var(--color-brand-600);
   --color-brand-700: var(--color-brand-700);
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-google-sans);
   --font-display: var(--font-eczar);
   --font-mono: var(--font-geist-mono);
 }
@@ -31,5 +31,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-google-sans), Arial, Helvetica, sans-serif;
 }
