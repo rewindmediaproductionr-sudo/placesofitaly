@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eczar, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,12 +18,6 @@ const googleSans = localFont({
     { path: "../public/fonts/google-sans/GoogleSans-Bold.woff2", weight: "700", style: "normal" },
     { path: "../public/fonts/google-sans/GoogleSans-BoldItalic.woff2", weight: "700", style: "italic" },
   ],
-});
-
-const eczar = Eczar({
-  variable: "--font-eczar",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -48,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${googleSans.variable} ${eczar.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${googleSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-black dark:text-zinc-50">
         <Header />

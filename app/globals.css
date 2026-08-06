@@ -17,7 +17,7 @@
   --color-brand-600: var(--color-brand-600);
   --color-brand-700: var(--color-brand-700);
   --font-sans: var(--font-google-sans);
-  --font-display: var(--font-eczar);
+  --font-display: var(--font-google-sans);
   --font-mono: var(--font-geist-mono);
 }
 
