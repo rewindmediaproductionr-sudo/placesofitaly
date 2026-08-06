@@ -82,7 +82,7 @@ export default function Header() {
             aria-expanded={menuOpen}
             aria-controls="site-menu"
             aria-label="Apri il menu"
-            className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors ${
+            className={`-mr-2 flex h-14 w-14 items-center justify-center rounded-full transition-colors ${
               transparent
                 ? "text-white/90 hover:bg-white/10 [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]"
                 : "text-zinc-600 hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
@@ -95,7 +95,7 @@ export default function Header() {
               stroke="currentColor"
               strokeWidth={2}
               strokeLinecap="round"
-              className="h-5 w-5"
+              className="h-10 w-10"
             >
               <path d="M4 7h16M4 12h16M4 17h16" />
             </svg>
@@ -108,12 +108,12 @@ export default function Header() {
           id="site-menu"
           className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-white text-zinc-900 dark:bg-black dark:text-zinc-50"
         >
-          <div className="flex justify-end px-6 pt-6">
+          <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-end px-6">
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
               aria-label="Chiudi il menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+              className="-mr-2 flex h-14 w-14 items-center justify-center rounded-full text-zinc-600 transition-colors hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
             >
               <svg
                 aria-hidden
@@ -122,7 +122,7 @@ export default function Header() {
                 stroke="currentColor"
                 strokeWidth={2}
                 strokeLinecap="round"
-                className="h-6 w-6"
+                className="h-10 w-10"
               >
                 <path d="M6 6l12 12M18 6L6 18" />
               </svg>
