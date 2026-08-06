@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Poppins, Eczar, Geist_Mono } from "next/font/google";
+import { Eczar, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const googleSans = localFont({
+  variable: "--font-google-sans",
+  display: "swap",
+  src: [
+    { path: "../public/fonts/google-sans/GoogleSans-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/google-sans/GoogleSans-Italic.woff2", weight: "400", style: "italic" },
+    { path: "../public/fonts/google-sans/GoogleSans-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/google-sans/GoogleSans-MediumItalic.woff2", weight: "500", style: "italic" },
+    { path: "../public/fonts/google-sans/GoogleSans-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/google-sans/GoogleSans-SemiBoldItalic.woff2", weight: "600", style: "italic" },
+    { path: "../public/fonts/google-sans/GoogleSans-Bold.woff2", weight: "700", style: "normal" },
+    { path: "../public/fonts/google-sans/GoogleSans-BoldItalic.woff2", weight: "700", style: "italic" },
+  ],
 });
 
 const eczar = Eczar({
@@ -38,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${poppins.variable} ${eczar.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${googleSans.variable} ${eczar.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-black dark:text-zinc-50">
         <Header />
