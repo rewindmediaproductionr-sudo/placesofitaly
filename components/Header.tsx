@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { regions } from "@/lib/regions";
 
 const MENU_LINKS = [
+  { href: "/#regioni", label: "Tutte le regioni" },
   { href: "/chi-siamo", label: "Chi siamo" },
   { href: "/vision-e-mission", label: "Vision e Mission" },
   { href: "/credit-e-partner", label: "Credit e Partner" },
@@ -17,7 +18,6 @@ export default function Header() {
   const hasHero = pathname === "/" || regions.some((region) => `/${region.slug}` === pathname);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!hasHero) return;
@@ -33,79 +33,87 @@ export default function Header() {
 
   useEffect(() => {
     if (!menuOpen) return;
-    const onClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false);
     };
-    document.addEventListener("mousedown", onClickOutside);
     document.addEventListener("keydown", onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("mousedown", onClickOutside);
       document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
     };
   }, [menuOpen]);
 
   const transparent = hasHero && !scrolled && !menuOpen;
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center transition-colors ${
-        transparent
-          ? "border-b border-transparent bg-transparent"
-          : "border-b border-black/10 bg-white dark:border-white/10 dark:bg-black"
-      }`}
-    >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/brand/poit-light.svg"
-            alt="Places of Italy"
-            width={580}
-            height={251}
-            priority
-            className={transparent ? "hidden" : "block h-8 w-auto dark:hidden"}
-          />
-          <Image
-            src="/brand/poit-dark.svg"
-            alt="Places of Italy"
-            width={580}
-            height={251}
-            priority
-            className={transparent ? "block h-8 w-auto" : "hidden h-8 w-auto dark:block"}
-          />
-        </Link>
-        <nav
-          className={`flex items-center gap-6 text-sm font-medium transition-colors ${
-            transparent
-              ? "text-white/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]"
-              : "text-zinc-600 dark:text-zinc-300"
-          }`}
-        >
-          <Link
-            href="/#regioni"
-            className={`transition-colors ${
-              transparent ? "hover:text-white" : "hover:text-brand-600 dark:hover:text-white"
-            }`}
-          >
-            Tutte le regioni
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center transition-colors ${
+          transparent
+            ? "border-b border-transparent bg-transparent"
+            : "border-b border-black/10 bg-white dark:border-white/10 dark:bg-black"
+        }`}
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/brand/poit-light.svg"
+              alt="Places of Italy"
+              width={580}
+              height={251}
+              priority
+              className={transparent ? "hidden" : "block h-8 w-auto dark:hidden"}
+            />
+            <Image
+              src="/brand/poit-dark.svg"
+              alt="Places of Italy"
+              width={580}
+              height={251}
+              priority
+              className={transparent ? "block h-8 w-auto" : "hidden h-8 w-auto dark:block"}
+            />
           </Link>
 
-          <div ref={menuRef} className="relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            aria-label="Apri il menu"
+            className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors ${
+              transparent
+                ? "text-white/90 hover:bg-white/10 [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]"
+                : "text-zinc-600 hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
+            }`}
+          >
+            <svg
+              aria-hidden
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              className="h-5 w-5"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div
+          id="site-menu"
+          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-white text-zinc-900 dark:bg-black dark:text-zinc-50"
+        >
+          <div className="flex justify-end px-6 pt-6">
             <button
               type="button"
-              onClick={() => setMenuOpen((open) => !open)}
-              aria-expanded={menuOpen}
-              aria-controls="site-menu"
-              aria-label="Apri il menu"
-              className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors ${
-                transparent
-                  ? "hover:bg-white/10"
-                  : "hover:bg-black/5 dark:hover:bg-white/10"
-              }`}
+              onClick={() => setMenuOpen(false)}
+              aria-label="Chiudi il menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
             >
               <svg
                 aria-hidden
@@ -114,43 +122,50 @@ export default function Header() {
                 stroke="currentColor"
                 strokeWidth={2}
                 strokeLinecap="round"
-                className="h-5 w-5"
+                className="h-6 w-6"
               >
-                {menuOpen ? (
-                  <path d="M6 6l12 12M18 6L6 18" />
-                ) : (
-                  <path d="M4 7h16M4 12h16M4 17h16" />
-                )}
+                <path d="M6 6l12 12M18 6L6 18" />
               </svg>
             </button>
-
-            {menuOpen && (
-              <div
-                id="site-menu"
-                className="absolute right-0 top-12 w-56 rounded-xl border border-black/10 bg-white p-2 text-zinc-900 shadow-lg dark:border-white/10 dark:bg-black dark:text-zinc-50"
-              >
-                {MENU_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/10"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="mt-2 border-t border-black/10 pt-2 dark:border-white/10">
-                  <Link
-                    href="/registrati"
-                    className="block rounded-lg bg-brand-600 px-3 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-                  >
-                    Registrati
-                  </Link>
-                </div>
-              </div>
-            )}
           </div>
-        </nav>
-      </div>
-    </header>
+
+          <div className="flex flex-1 flex-col items-center justify-center gap-10 px-6 pb-16 text-center">
+            <Image
+              src="/brand/poit-light.svg"
+              alt="Places of Italy"
+              width={580}
+              height={251}
+              className="h-12 w-auto dark:hidden"
+            />
+            <Image
+              src="/brand/poit-dark.svg"
+              alt="Places of Italy"
+              width={580}
+              height={251}
+              className="hidden h-12 w-auto dark:block"
+            />
+
+            <nav className="w-full max-w-xs border-t border-black/10 dark:border-white/10">
+              {MENU_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block border-b border-black/10 py-5 text-lg font-medium tracking-tight transition-colors hover:text-brand-600 dark:border-white/10 dark:hover:text-brand-50"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <Link
+              href="/registrati"
+              className="w-full max-w-xs rounded-md border border-zinc-900 py-4 text-base font-medium transition-colors hover:bg-zinc-900 hover:text-white dark:border-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900"
+            >
+              Registrati
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
