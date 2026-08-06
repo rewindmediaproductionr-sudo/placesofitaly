@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { regions } from "@/lib/regions";
 
 export default function Header() {
   const pathname = usePathname();
-  const hasHero = pathname !== "/tools";
+  const hasHero = pathname === "/" || regions.some((region) => `/${region.slug}` === pathname);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,13 +22,13 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-colors ${
+      className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center transition-colors ${
         transparent
           ? "border-b border-transparent bg-transparent"
           : "border-b border-black/10 bg-white dark:border-white/10 dark:bg-black"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
           className={`flex items-center gap-2 font-display text-lg font-semibold tracking-tight transition-colors ${
