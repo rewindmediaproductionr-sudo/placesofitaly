@@ -61,6 +61,31 @@ export default function ToolsPage() {
       </p>
 
       <section className="mt-14">
+        <h2 className="font-display text-xl font-semibold tracking-tight">Strumenti</h2>
+        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Applicazioni collegate al circuito Places of Italy.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <a
+            href="https://polymarket-italia.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col rounded-2xl border border-black/10 p-6 transition-colors hover:border-brand-500 dark:border-white/10 dark:hover:border-brand-500"
+          >
+            <span className="font-display text-lg font-semibold tracking-tight">
+              Polymarket Italia
+            </span>
+            <span className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Mercati predittivi in italiano, in un&apos;app dedicata.
+            </span>
+            <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-600 group-hover:text-brand-500 dark:text-brand-50">
+              Apri il tool ↗
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section className="mt-14">
         <h2 className="font-display text-xl font-semibold tracking-tight">Kit social media</h2>
 
         <div className="mt-5">
