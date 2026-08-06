@@ -14,24 +14,19 @@ export default function Home() {
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <span
-          className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/60"
-          aria-hidden
-        />
+        <span className="absolute inset-0 bg-black/45" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
-          <div className="mx-auto max-w-2xl rounded-3xl bg-black/30 px-6 py-10 backdrop-blur-sm sm:px-10 sm:py-14">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-50">
-              20 regioni, un solo racconto
-            </p>
-            <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-6xl">
-              Places of Italy
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
-              Il portale che racconta l&apos;Italia una regione alla volta: montagne,
-              coste, borghi e città, con uno sguardo dedicato a chi ogni giorno
-              promuove il proprio territorio sui social.
-            </p>
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-widest text-brand-50">
+            20 regioni, un solo racconto
+          </p>
+          <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-6xl">
+            Places of Italy
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
+            Il portale che racconta l&apos;Italia una regione alla volta: montagne,
+            coste, borghi e città, con uno sguardo dedicato a chi ogni giorno
+            promuove il proprio territorio sui social.
+          </p>
           <a
             href="#regioni"
             className="mt-10 inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
