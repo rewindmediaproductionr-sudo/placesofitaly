@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -29,18 +30,23 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className={`flex items-center gap-2 font-display text-lg font-semibold tracking-tight transition-colors ${
-            transparent ? "text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]" : ""
-          }`}
-        >
-          <span
-            aria-hidden
-            className="inline-block h-3 w-3 rounded-full"
-            style={{ background: "linear-gradient(135deg, #09453e, #d98324)" }}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/brand/poit-light.svg"
+            alt="Places of Italy"
+            width={580}
+            height={251}
+            priority
+            className={transparent ? "hidden" : "block h-8 w-auto dark:hidden"}
           />
-          Places of Italy
+          <Image
+            src="/brand/poit-dark.svg"
+            alt="Places of Italy"
+            width={580}
+            height={251}
+            priority
+            className={transparent ? "block h-8 w-auto" : "hidden h-8 w-auto dark:block"}
+          />
         </Link>
         <nav
           className={`flex items-center gap-6 text-sm font-medium transition-colors ${
