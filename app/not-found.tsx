@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex max-w-lg flex-col items-center px-6 py-32 text-center">
+    <div className="mx-auto flex max-w-lg flex-col items-center px-6 pb-32 pt-48 text-center">
       <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-50">
         404
       </p>

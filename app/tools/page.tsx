@@ -46,7 +46,7 @@ export default function ToolsPage() {
   const palette = uniquePalette();
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
+    <div className="mx-auto max-w-4xl px-6 pb-16 pt-32">
       <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-50">
         Area partner · pagina non indicizzata
       </p>
