@@ -90,21 +90,39 @@ export default function ToolsPage() {
 
         <div className="mt-5">
           <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Logo</p>
-          <div className="mt-3 flex items-center gap-4 rounded-xl border border-black/10 p-5 dark:border-white/10">
-            <Image
-              src="/brand/logo.svg"
-              alt="Logo Places of Italy"
-              width={240}
-              height={60}
-              className="h-10 w-auto dark:invert"
-            />
-            <a
-              href="/brand/logo.svg"
-              download
-              className="ml-auto inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition-colors hover:border-brand-500 hover:text-brand-600 dark:border-white/15 dark:hover:border-brand-500 dark:hover:text-white"
-            >
-              Scarica SVG
-            </a>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <div className="flex items-center gap-4 rounded-xl border border-black/10 bg-white p-5">
+              <Image
+                src="/brand/poit-light.svg"
+                alt="Logo Places of Italy (versione scura, per sfondi chiari)"
+                width={580}
+                height={251}
+                className="h-10 w-auto"
+              />
+              <a
+                href="/brand/poit-light.svg"
+                download
+                className="ml-auto inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:border-brand-500 hover:text-brand-600"
+              >
+                Scarica SVG
+              </a>
+            </div>
+            <div className="flex items-center gap-4 rounded-xl border border-white/15 bg-zinc-900 p-5">
+              <Image
+                src="/brand/poit-dark.svg"
+                alt="Logo Places of Italy (versione chiara, per sfondi scuri)"
+                width={580}
+                height={251}
+                className="h-10 w-auto"
+              />
+              <a
+                href="/brand/poit-dark.svg"
+                download
+                className="ml-auto inline-flex items-center rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-brand-500 hover:text-brand-500"
+              >
+                Scarica SVG
+              </a>
+            </div>
           </div>
         </div>
 
