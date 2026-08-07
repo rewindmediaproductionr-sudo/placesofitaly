@@ -35,12 +35,6 @@ export default function Footer() {
             <p className="text-sm text-zinc-500 dark:text-zinc-500">
               &copy; {new Date().getFullYear()} Places of Italy
             </p>
-            <Link
-              href="/tools"
-              className="mt-2 inline-block text-xs text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400"
-            >
-              Area partner
-            </Link>
           </div>
         </div>
       </div>
