@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import RegionCard from "@/components/RegionCard";
 import { regions } from "@/lib/regions";
 
@@ -27,12 +28,20 @@ export default function Home() {
             coste, borghi e città, con uno sguardo dedicato a chi ogni giorno
             promuove il proprio territorio sui social.
           </p>
-          <a
-            href="#regioni"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
-          >
-            Esplora le regioni
-          </a>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#regioni"
+              className="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
+            >
+              Esplora
+            </a>
+            <Link
+              href="/registrati"
+              className="inline-flex items-center justify-center rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-zinc-900"
+            >
+              Registrati
+            </Link>
+          </div>
         </div>
       </section>
 
