@@ -64,7 +64,7 @@ export default function Header() {
               width={580}
               height={251}
               priority
-              className={transparent ? "hidden" : "block h-8 w-auto dark:hidden"}
+              className={transparent ? "hidden" : "block h-10 w-auto dark:hidden"}
             />
             <Image
               src="/brand/poit-dark.svg"
@@ -72,7 +72,7 @@ export default function Header() {
               width={580}
               height={251}
               priority
-              className={transparent ? "block h-8 w-auto" : "hidden h-8 w-auto dark:block"}
+              className={transparent ? "block h-10 w-auto" : "hidden h-10 w-auto dark:block"}
             />
           </Link>
 
