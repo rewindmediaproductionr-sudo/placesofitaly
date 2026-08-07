@@ -69,10 +69,7 @@ export default async function RegionPage({
             className="absolute inset-0 h-full w-full"
           />
         )}
-        <span
-          className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/15 to-transparent"
-          aria-hidden
-        />
+        <span className="absolute inset-0 bg-black/45" aria-hidden />
         <div className="relative mx-auto w-full max-w-4xl">
           <Link href="/" className="text-sm text-white/70 hover:text-white">
             ← Tutte le regioni
