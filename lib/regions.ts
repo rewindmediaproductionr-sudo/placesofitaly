@@ -13,10 +13,19 @@ export interface RegionVisual {
   water?: boolean;
 }
 
+export type RegionArea = "nord" | "centro" | "sud";
+
+export const regionAreaLabels: Record<RegionArea, string> = {
+  nord: "Nord",
+  centro: "Centro",
+  sud: "Sud e Isole",
+};
+
 export interface Region {
   slug: string;
   name: string;
   capital: string;
+  area: RegionArea;
   tagline: string;
   description: string;
   highlights: string[];
@@ -32,6 +41,7 @@ export const regions: Region[] = [
     slug: "abruzzo",
     name: "Abruzzo",
     capital: "L'Aquila",
+    area: "sud",
     tagline: "Montagne selvagge, parchi nazionali e una costa d'altri tempi",
     description:
       "L'Abruzzo è la regione più verde d'Europa: tre parchi nazionali, il massiccio del Gran Sasso e la Costa dei Trabocchi convivono a pochi chilometri di distanza. Un territorio ideale per chi cerca natura autentica, borghi di montagna e tradizioni ancora vive.",
@@ -45,6 +55,7 @@ export const regions: Region[] = [
     slug: "basilicata",
     name: "Basilicata",
     capital: "Potenza",
+    area: "sud",
     tagline: "I Sassi di Matera e le Dolomiti Lucane",
     description:
       "Terra sospesa tra due mari, la Basilicata custodisce Matera, patrimonio UNESCO e Capitale della Cultura, insieme a paesaggi lunari, le vette delle Dolomiti Lucane e il litorale di Maratea.",
@@ -58,6 +69,7 @@ export const regions: Region[] = [
     slug: "calabria",
     name: "Calabria",
     capital: "Catanzaro",
+    area: "sud",
     tagline: "Due mari, l'Aspromonte e borghi sospesi sulla costa",
     description:
       "Bagnata dal Tirreno e dallo Ionio, la Calabria alterna spiagge da cartolina come Tropea a montagne selvagge come la Sila e l'Aspromonte, in una regione ancora poco esplorata dal turismo di massa.",
@@ -71,6 +83,7 @@ export const regions: Region[] = [
     slug: "campania",
     name: "Campania",
     capital: "Napoli",
+    area: "sud",
     tagline: "Napoli, la Costiera Amalfitana e Pompei",
     description:
       "Poche regioni al mondo racchiudono tanta bellezza in così poco spazio: Napoli, il Vesuvio, gli scavi di Pompei, Capri e la Costiera Amalfitana fanno della Campania una delle mete più amate d'Italia.",
@@ -84,6 +97,7 @@ export const regions: Region[] = [
     slug: "emilia-romagna",
     name: "Emilia-Romagna",
     capital: "Bologna",
+    area: "nord",
     tagline: "Motori, food valley e la riviera romagnola",
     description:
       "Tra Bologna, Parma e Modena si concentra la food valley italiana; sulla costa adriatica, la Riviera Romagnola resta una delle mete balneari più amate dagli italiani, senza dimenticare il mito dei motori di Maranello.",
@@ -97,6 +111,7 @@ export const regions: Region[] = [
     slug: "friuli-venezia-giulia",
     name: "Friuli-Venezia Giulia",
     capital: "Trieste",
+    area: "nord",
     tagline: "Trieste, le Dolomiti Friulane e i vini di confine",
     description:
       "Regione di confine tra Mediterraneo e mondo mitteleuropeo, il Friuli-Venezia Giulia offre Trieste affacciata sul golfo, le Dolomiti Friulane patrimonio UNESCO e alcune delle cantine più apprezzate d'Italia.",
@@ -110,6 +125,7 @@ export const regions: Region[] = [
     slug: "lazio",
     name: "Lazio",
     capital: "Roma",
+    area: "centro",
     tagline: "Roma, i Castelli Romani e la costa laziale",
     description:
       "Il Lazio è dominato da Roma, capitale d'Italia e museo a cielo aperto, ma riserva sorprese anche fuori città: i Castelli Romani, le rovine di Ostia Antica e le terme di Tivoli.",
@@ -123,6 +139,7 @@ export const regions: Region[] = [
     slug: "liguria",
     name: "Liguria",
     capital: "Genova",
+    area: "nord",
     tagline: "Cinque Terre, Portofino e la riviera ligure",
     description:
       "Stretta tra mare e montagna, la Liguria è celebre per i borghi colorati delle Cinque Terre, il fascino esclusivo di Portofino e i caruggi di Genova, capitale della cultura marinara italiana.",
@@ -136,6 +153,7 @@ export const regions: Region[] = [
     slug: "lombardia",
     name: "Lombardia",
     capital: "Milano",
+    area: "nord",
     tagline: "Milano, i grandi laghi e le Alpi lombarde",
     description:
       "Cuore economico d'Italia, la Lombardia unisce la modernità di Milano ai paesaggi da sogno del Lago di Como e del Lago di Garda, fino alle vette delle Alpi Orobie e della Valtellina.",
@@ -149,6 +167,7 @@ export const regions: Region[] = [
     slug: "marche",
     name: "Marche",
     capital: "Ancona",
+    area: "centro",
     tagline: "Urbino, il Conero e borghi collinari",
     description:
       "Terra di mezzo tra Appennino e Adriatico, le Marche custodiscono Urbino patrimonio UNESCO, la costa selvaggia del Conero e decine di borghi collinari ancora fuori dai grandi flussi turistici.",
@@ -162,6 +181,7 @@ export const regions: Region[] = [
     slug: "molise",
     name: "Molise",
     capital: "Campobasso",
+    area: "sud",
     tagline: "La regione che non esiste (e che vale la pena scoprire)",
     description:
       "Piccola e meno conosciuta, il Molise è una regione autentica fatta di tratturi, borghi silenziosi e la costa adriatica di Termoli, perfetta per chi cerca un turismo lontano dalla folla.",
@@ -175,6 +195,7 @@ export const regions: Region[] = [
     slug: "piemonte",
     name: "Piemonte",
     capital: "Torino",
+    area: "nord",
     tagline: "Torino, le Langhe e le Alpi piemontesi",
     description:
       "Eleganza sabauda, colline patrimonio UNESCO e grandi vette alpine: il Piemonte è la casa del Barolo, delle Langhe e di Torino, prima capitale d'Italia.",
@@ -188,6 +209,7 @@ export const regions: Region[] = [
     slug: "puglia",
     name: "Puglia",
     capital: "Bari",
+    area: "sud",
     tagline: "Trulli, Salento e un mare da cartolina",
     description:
       "Dai trulli di Alberobello al barocco di Lecce, dalle spiagge del Salento a Ostuni la città bianca, la Puglia è oggi una delle mete più desiderate d'Italia per mare, cibo e ospitalità.",
@@ -201,6 +223,7 @@ export const regions: Region[] = [
     slug: "sardegna",
     name: "Sardegna",
     capital: "Cagliari",
+    area: "sud",
     tagline: "Mare cristallino, nuraghi e la Costa Smeralda",
     description:
       "Isola nell'isola, la Sardegna vanta alcune delle acque più trasparenti del Mediterraneo, un patrimonio archeologico unico legato ai nuraghi e un entroterra selvaggio ancora poco battuto.",
@@ -214,6 +237,7 @@ export const regions: Region[] = [
     slug: "sicilia",
     name: "Sicilia",
     capital: "Palermo",
+    area: "sud",
     tagline: "Etna, tempi greci e la costa più bella del Mediterraneo",
     description:
       "Crocevia di civiltà, la Sicilia offre il vulcano attivo più alto d'Europa, templi greci meglio conservati che in Grecia e città come Palermo, Siracusa e Taormina ricche di storia e sapori.",
@@ -227,6 +251,7 @@ export const regions: Region[] = [
     slug: "toscana",
     name: "Toscana",
     capital: "Firenze",
+    area: "centro",
     tagline: "Firenze, il Chianti e la Val d'Orcia",
     description:
       "Culla del Rinascimento, la Toscana è arte a Firenze e Siena, colline di vigneti nel Chianti e in Val d'Orcia, borghi medievali e una delle cucine più celebrate al mondo.",
@@ -240,6 +265,7 @@ export const regions: Region[] = [
     slug: "trentino-alto-adige",
     name: "Trentino-Alto Adige",
     capital: "Trento",
+    area: "nord",
     tagline: "Dolomiti, laghi alpini e borghi tra due culture",
     description:
       "Patrimonio UNESCO, le Dolomiti dominano un territorio dove cultura italiana e mitteleuropea convivono, tra i laghi di Braies e Molveno, Bolzano e le piste sciistiche più famose d'Italia.",
@@ -253,6 +279,7 @@ export const regions: Region[] = [
     slug: "umbria",
     name: "Umbria",
     capital: "Perugia",
+    area: "centro",
     tagline: "Il cuore verde d'Italia, tra Assisi e Orvieto",
     description:
       "Unica regione italiana senza sbocco al mare né confini esteri, l'Umbria è un susseguirsi di borghi collinari, arte sacra e paesaggi verdi, con Assisi e Orvieto tra le mete più amate.",
@@ -266,6 +293,7 @@ export const regions: Region[] = [
     slug: "valle-d-aosta",
     name: "Valle d'Aosta",
     capital: "Aosta",
+    area: "nord",
     tagline: "Il Monte Bianco e i castelli delle Alpi",
     description:
       "La più piccola regione italiana è anche una delle più spettacolari: il Monte Bianco, il Cervino, decine di castelli medievali e alcune delle stazioni sciistiche più celebri d'Europa.",
@@ -279,6 +307,7 @@ export const regions: Region[] = [
     slug: "veneto",
     name: "Veneto",
     capital: "Venezia",
+    area: "nord",
     tagline: "Venezia, Verona e le Dolomiti venete",
     description:
       "Dalla laguna di Venezia all'Arena di Verona, dalle colline del Prosecco alle Dolomiti di Cortina, il Veneto è una delle regioni più visitate al mondo e tra le più diverse per paesaggi.",

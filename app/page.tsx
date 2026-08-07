@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import RegionCard from "@/components/RegionCard";
+import RegionExplorer from "@/components/RegionExplorer";
 import { regions } from "@/lib/regions";
 
 export default function Home() {
@@ -54,11 +54,7 @@ export default function Home() {
             Scegli una regione per scoprire cosa vedere e i suoi canali social.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {regions.map((region) => (
-            <RegionCard key={region.slug} region={region} />
-          ))}
-        </div>
+        <RegionExplorer regions={regions} />
       </section>
 
       <section className="border-t border-black/10 bg-zinc-50 dark:border-white/10 dark:bg-zinc-950">
