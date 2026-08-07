@@ -31,13 +31,13 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#regioni"
-              className="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
+              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200"
             >
               Esplora
             </a>
             <Link
               href="/registrati"
-              className="inline-flex items-center justify-center rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-zinc-900"
+              className="inline-flex items-center justify-center rounded-md border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-zinc-900"
             >
               Registrati
             </Link>
