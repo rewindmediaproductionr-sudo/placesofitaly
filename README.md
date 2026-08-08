@@ -15,6 +15,25 @@ I dati delle regioni (descrizioni, punti di interesse, canali social) sono
 in `lib/regions.ts`. I canali social sono opzionali: finché non vengono
 aggiunti, la pagina regione mostra "canale in fase di attivazione".
 
+## Registrazione utenti
+
+`/registrati` permette di creare un account come **viaggiatore** o come
+**partner** (chi gestisce un canale social regionale). L'autenticazione usa
+[Supabase](https://supabase.com):
+
+1. Crea un progetto su supabase.com.
+2. Esegui `supabase/schema.sql` nell'SQL editor del progetto: crea la tabella
+   `profiles` e il trigger che la popola alla registrazione.
+3. Copia `.env.local.example` in `.env.local` e imposta `NEXT_PUBLIC_SUPABASE_URL`
+   e `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Project Settings → API).
+4. In Authentication → URL Configuration, imposta la Site URL e aggiungi
+   `/auth/confirm` tra i redirect URL consentiti.
+5. In Authentication → Email Templates → "Confirm signup", sostituisci il
+   link generato con:
+   `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email`
+   (necessario perché la conferma viene gestita dalla route
+   `app/auth/confirm/route.ts` invece che dal dominio di Supabase).
+
 ## Sviluppo
 
 ```bash
