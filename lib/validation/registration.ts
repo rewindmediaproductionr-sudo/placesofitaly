@@ -12,6 +12,7 @@ const baseFields = {
   password: z
     .string()
     .min(8, { error: "La password deve avere almeno 8 caratteri." }),
+  confirmPassword: z.string(),
 };
 
 export const TravelerSchema = z.object({
@@ -29,10 +30,18 @@ export const PartnerSchema = z.object({
     .url({ error: "Inserisci un link valido (es. https://instagram.com/...)." }),
 });
 
-export const RegistrationSchema = z.discriminatedUnion("type", [
-  TravelerSchema,
-  PartnerSchema,
-]);
+export const RegistrationSchema = z
+  .discriminatedUnion("type", [TravelerSchema, PartnerSchema])
+  .check((ctx) => {
+    if (ctx.value.password !== ctx.value.confirmPassword) {
+      ctx.issues.push({
+        code: "custom",
+        message: "Le password non coincidono.",
+        path: ["confirmPassword"],
+        input: ctx.value.confirmPassword,
+      });
+    }
+  });
 
 export type RegistrationFormState =
   | {

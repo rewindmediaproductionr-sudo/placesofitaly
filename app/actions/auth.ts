@@ -31,6 +31,7 @@ export async function signup(
           fullName: formData.get("fullName"),
           email: formData.get("email"),
           password: formData.get("password"),
+          confirmPassword: formData.get("confirmPassword"),
           regionSlug: formData.get("regionSlug"),
           socialLink: formData.get("socialLink"),
         }
@@ -39,6 +40,7 @@ export async function signup(
           fullName: formData.get("fullName"),
           email: formData.get("email"),
           password: formData.get("password"),
+          confirmPassword: formData.get("confirmPassword"),
         }
   );
 

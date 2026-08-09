@@ -115,6 +115,24 @@ export default function RegistrationForm() {
         )}
       </div>
 
+      <div>
+        <label htmlFor="confirmPassword" className={labelClass}>
+          Conferma password
+        </label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          autoComplete="new-password"
+          required
+          minLength={8}
+          className={inputClass}
+        />
+        {state?.errors?.confirmPassword && (
+          <p className={errorClass}>{state.errors.confirmPassword[0]}</p>
+        )}
+      </div>
+
       {userType === "partner" && (
         <>
           <div>
