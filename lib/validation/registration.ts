@@ -1,5 +1,6 @@
 import * as z from "zod";
 import { regions } from "@/lib/regions";
+import { passwordMeetsRequirements } from "@/lib/validation/password";
 
 const regionSlugs = regions.map((region) => region.slug) as [string, ...string[]];
 
@@ -9,9 +10,10 @@ const baseFields = {
     .trim()
     .min(2, { error: "Inserisci nome e cognome." }),
   email: z.email({ error: "Inserisci un indirizzo email valido." }).trim(),
-  password: z
-    .string()
-    .min(8, { error: "La password deve avere almeno 8 caratteri." }),
+  password: z.string().refine(passwordMeetsRequirements, {
+    error:
+      "La password deve avere almeno 10 caratteri e includere maiuscola, minuscola, numero e carattere speciale.",
+  }),
   confirmPassword: z.string(),
 };
 
