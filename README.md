@@ -33,6 +33,18 @@ aggiunti, la pagina regione mostra "canale in fase di attivazione".
    `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email`
    (necessario perché la conferma viene gestita dalla route
    `app/auth/confirm/route.ts` invece che dal dominio di Supabase).
+6. In Authentication → Email Templates → "Reset Password", sostituisci il
+   link generato con:
+   `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/recupera-password/nuova`
+
+`/accedi` gestisce il login, `/recupera-password` l'invio del link di
+recupero e `/recupera-password/nuova` l'inserimento della nuova password
+dopo aver aperto il link ricevuto via email.
+
+Se dopo aver fatto tutto questo la registrazione o il login rispondono
+ancora con un errore generico, controlla i log della function su Vercel
+(Project → Deployments → Functions): l'errore reale di Supabase viene
+loggato lì con `console.error`, senza essere mostrato all'utente.
 
 ## Sviluppo
 
