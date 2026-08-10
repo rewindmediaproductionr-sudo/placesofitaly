@@ -406,3 +406,12 @@ revoke all on function public.entities_cascade_paths()       from public, anon, 
 revoke all on function public.rebuild_subtree_paths(bigint)  from public, anon, authenticated;
 revoke all on function public.recompute_all_stats()          from public, anon, authenticated;
 revoke all on function public.handle_partner_page()          from public, anon, authenticated;
+
+-- ---------------------------------------------------------------------------
+-- 9. Marcatore di completamento
+-- ---------------------------------------------------------------------------
+
+-- Se questa riga non compare nei risultati dopo aver premuto Run, l'esecuzione
+-- si è interrotta prima della fine (capita facilmente incollando da telefono):
+-- non passare a 002_seed_entities.sql, riesegui questo file per intero.
+select 'Migration 001 completata: tabelle, trigger, RLS e revoche applicate.' as esito;
