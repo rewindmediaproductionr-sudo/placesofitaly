@@ -161,6 +161,11 @@ export default function RegistrationForm() {
             {state?.errors?.socialLink && (
               <p className={errorClass}>{state.errors.socialLink[0]}</p>
             )}
+            <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+              Registrandoti come partner, il tuo nome e il tuo canale saranno
+              pubblicati sul portale e potranno ricevere like. Potrai
+              disattivare la pubblicazione in qualsiasi momento dal tuo profilo.
+            </p>
           </div>
         </>
       )}

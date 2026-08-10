@@ -2,8 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import RegionExplorer from "@/components/RegionExplorer";
 import { regions } from "@/lib/regions";
+import { getLikesByRefs } from "@/lib/ratings/queries";
+import { REGION_REFS } from "@/lib/ratings/refs";
 
-export default function Home() {
+// Come le pagine regione: la home resta statica e si riallinea ogni 15 minuti.
+export const revalidate = 900;
+
+export default async function Home() {
+  // Una sola query per tutte e 20 le regioni, non una per card.
+  const likes = await getLikesByRefs(REGION_REFS);
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-black/10 text-white dark:border-white/10">
@@ -54,7 +62,7 @@ export default function Home() {
             Scegli una regione per scoprire cosa vedere e i suoi canali social.
           </p>
         </div>
-        <RegionExplorer regions={regions} />
+        <RegionExplorer regions={regions} likes={likes} />
       </section>
 
       <section className="border-t border-black/10 bg-zinc-50 dark:border-white/10 dark:bg-zinc-950">
