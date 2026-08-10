@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { regions } from "@/lib/regions";
-import { logout } from "@/app/actions/auth";
 import { getInitials } from "@/lib/format";
 import { createClient } from "@/lib/supabase/client";
 
@@ -224,35 +223,7 @@ export default function Header() {
               ))}
             </nav>
 
-            {user ? (
-              <div className="flex w-full max-w-xs flex-col gap-3">
-                <div className="flex items-center justify-center gap-3 pb-2">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white">
-                    {getInitials(user.fullName)}
-                  </span>
-                  <span className="text-left text-sm">
-                    <span className="block font-medium">{user.fullName}</span>
-                    <span className="block text-zinc-500 dark:text-zinc-400">
-                      {user.email}
-                    </span>
-                  </span>
-                </div>
-                <Link
-                  href="/profilo"
-                  className="w-full rounded-md bg-zinc-900 py-4 text-center text-base font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-                >
-                  Il mio profilo
-                </Link>
-                <form action={logout}>
-                  <button
-                    type="submit"
-                    className="w-full rounded-md border border-zinc-900 py-4 text-center text-base font-medium transition-colors hover:bg-zinc-900 hover:text-white dark:border-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900"
-                  >
-                    Esci
-                  </button>
-                </form>
-              </div>
-            ) : (
+            {!user && (
               <div className="flex w-full max-w-xs flex-col gap-3">
                 <Link
                   href="/accedi"
