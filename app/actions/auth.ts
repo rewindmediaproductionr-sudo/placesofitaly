@@ -92,6 +92,12 @@ export async function signup(
   return { message: "success" };
 }
 
+export async function logout() {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  redirect("/");
+}
+
 export async function login(
   _state: AuthFormState,
   formData: FormData
