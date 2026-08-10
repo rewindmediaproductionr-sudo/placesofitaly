@@ -157,12 +157,20 @@ export default function Header() {
               ))}
             </nav>
 
-            <Link
-              href="/registrati"
-              className="w-full max-w-xs rounded-md border border-zinc-900 py-4 text-base font-medium transition-colors hover:bg-zinc-900 hover:text-white dark:border-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900"
-            >
-              Registrati
-            </Link>
+            <div className="flex w-full max-w-xs flex-col gap-3">
+              <Link
+                href="/accedi"
+                className="w-full rounded-md bg-zinc-900 py-4 text-center text-base font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+              >
+                Accedi
+              </Link>
+              <Link
+                href="/registrati"
+                className="w-full rounded-md border border-zinc-900 py-4 text-center text-base font-medium transition-colors hover:bg-zinc-900 hover:text-white dark:border-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900"
+              >
+                Registrati
+              </Link>
+            </div>
           </div>
         </div>
       )}
