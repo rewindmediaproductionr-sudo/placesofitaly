@@ -4,10 +4,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRegionBySlug, regions } from "@/lib/regions";
 import RegionScene from "@/components/RegionScene";
+import LikeStats from "@/components/LikeStats";
+import LikeButton from "@/components/LikeButton";
+import { getLike } from "@/lib/ratings/queries";
+import { regionRef } from "@/lib/ratings/refs";
 
 export function generateStaticParams() {
   return regions.map((region) => ({ region: region.slug }));
 }
+
+// La pagina resta prerenderizzata (SSG) e si riallinea ogni 15 minuti: i
+// contatori finiscono nell'HTML, indicizzabili, senza rendere dinamica la
+// rotta. Il "mio like" personale è invece letto lato client dal widget.
+export const revalidate = 900;
 
 export async function generateMetadata({
   params,
@@ -47,6 +56,7 @@ export default async function RegionPage({
   }
 
   const socialEntries = Object.entries(region.social ?? {});
+  const likes = await getLike(regionRef(slug));
 
   return (
     <article>
@@ -81,6 +91,7 @@ export default async function RegionPage({
             {region.name}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/85">{region.tagline}</p>
+          <LikeStats summary={likes} className="mt-6" />
           {region.photoCredit && (
             <p className="mt-6 text-xs text-white/60">Foto: {region.photoCredit}</p>
           )}
@@ -107,6 +118,19 @@ export default async function RegionPage({
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-black/10 p-6 dark:border-white/10">
+          <h2 className="font-display text-xl font-semibold tracking-tight">
+            Ti piace {region.name}?
+          </h2>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            Il tuo like fa salire il punteggio della regione e di tutti i suoi
+            contenuti.
+          </p>
+          <div className="mt-5">
+            <LikeButton entityRef={regionRef(slug)} initialSummary={likes} />
+          </div>
         </section>
 
         <section className="mt-12">

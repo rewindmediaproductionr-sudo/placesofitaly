@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import RegionCard from "@/components/RegionCard";
 import { regionAreaLabels, type Region, type RegionArea } from "@/lib/regions";
+import { regionRef } from "@/lib/ratings/refs";
+import type { LikeSummary } from "@/lib/ratings/types";
 
 const ALL_AREAS: RegionArea[] = ["nord", "centro", "sud"];
 
@@ -26,7 +28,13 @@ function matchesQuery(region: Region, query: string) {
   return haystack.includes(query);
 }
 
-export default function RegionExplorer({ regions }: { regions: Region[] }) {
+export default function RegionExplorer({
+  regions,
+  likes = {},
+}: {
+  regions: Region[];
+  likes?: Record<string, LikeSummary>;
+}) {
   const [query, setQuery] = useState("");
   const [selectedAreas, setSelectedAreas] = useState<Set<RegionArea>>(
     () => new Set(ALL_AREAS)
@@ -168,7 +176,11 @@ export default function RegionExplorer({ regions }: { regions: Region[] }) {
       {filtered.length > 0 ? (
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((region) => (
-            <RegionCard key={region.slug} region={region} />
+            <RegionCard
+              key={region.slug}
+              region={region}
+              likes={likes[regionRef(region.slug)]}
+            />
           ))}
         </div>
       ) : (

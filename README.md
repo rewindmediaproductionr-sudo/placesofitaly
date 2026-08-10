@@ -46,6 +46,56 @@ ancora con un errore generico, controlla i log della function su Vercel
 (Project → Deployments → Functions): l'errore reale di Supabase viene
 loggato lì con `console.error`, senza essere mostrato all'utente.
 
+## Like e classifiche
+
+Gli utenti registrati possono mettere like ai contenuti. I like **salgono a
+cascata**: un like su un luogo fa crescere il punteggio del suo comune, della
+provincia e della regione.
+
+Il modello è già predisposto per province, comuni, luoghi ed eventi anche se
+oggi esistono solo le regioni: tutti i livelli vivono nella stessa tabella
+`entities`, e un contenuto si aggancia all'antenato più vicino che esiste. Il
+giorno in cui arriveranno i comuni basterà cambiare `parent_id`, senza rifare
+né lo schema né i conteggi.
+
+Ogni territorio mostra due numeri, che misurano cose diverse:
+
+- **Like totali** — la somma di tutti i like del territorio e dei suoi
+  contenuti. È la classifica di popolarità: le regioni grandi tendono a
+  vincere, ed è corretto così.
+- **Media per contenuto** — i like divisi per il numero di contenuti, con una
+  correzione statistica che impedisce a un contenuto con pochissimi voti di
+  schizzare in cima. Serve a confrontare territori di dimensioni molto diverse.
+
+Finché le regioni non avranno contenuti figli i due numeri coincidono: è
+atteso, non è un errore di calcolo.
+
+Chi si registra come **partner** ottiene automaticamente una pagina votabile
+(il proprio canale social), collegata alla sua regione, creata alla conferma
+dell'email. La pubblicazione si può disattivare in ogni momento da `/profilo`.
+
+## Modifiche allo schema del database
+
+`supabase/schema.sql` è il bootstrap di un progetto vuoto e **non va più
+modificato**: non è rieseguibile. Ogni modifica successiva è un file numerato
+in `supabase/migrations/`, da eseguire in ordine nell'SQL editor:
+
+```
+supabase/migrations/001_rating_schema.sql   sistema di like (tabelle, trigger, RLS)
+supabase/migrations/002_seed_entities.sql   le 20 regioni come entità votabili
+```
+
+Ogni file è scritto per essere **idempotente**: eseguirlo due volte non produce
+errori né duplicati. Chi aggiunge nuove migrazioni deve mantenere questa
+proprietà (`create table if not exists`, `create or replace function`,
+`drop policy if exists` prima di ogni `create policy`, seed con
+`on conflict do update`).
+
+Se aggiungi una regione a `lib/regions.ts`, ricordati di aggiungerla anche a
+`002_seed_entities.sql`: il sito non si rompe se te ne dimentichi (la regione
+semplicemente non riceve like), e in sviluppo la console avvisa del
+disallineamento.
+
 ## Sviluppo
 
 ```bash

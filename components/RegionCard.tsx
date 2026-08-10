@@ -2,8 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Region } from "@/lib/regions";
 import RegionScene from "@/components/RegionScene";
+import LikeBadge from "@/components/LikeBadge";
+import type { LikeSummary } from "@/lib/ratings/types";
 
-export default function RegionCard({ region }: { region: Region }) {
+export default function RegionCard({
+  region,
+  likes,
+}: {
+  region: Region;
+  likes?: LikeSummary;
+}) {
   return (
     <Link
       href={`/${region.slug}`}
@@ -31,6 +39,7 @@ export default function RegionCard({ region }: { region: Region }) {
         aria-hidden
       />
       <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" aria-hidden />
+      <LikeBadge summary={likes} />
       <span className="relative text-2xl font-semibold tracking-tight">{region.name}</span>
       <span className="relative mt-1 text-sm text-white/80 line-clamp-2">{region.tagline}</span>
     </Link>
