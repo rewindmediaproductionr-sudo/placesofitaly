@@ -12,6 +12,17 @@ export function regionRef(slug: string) {
   return entityRef("regione", slug);
 }
 
+export function provinciaRef(slug: string) {
+  return entityRef("provincia", slug);
+}
+
+// I comuni sono ambigui per solo nome ("San Pietro" esiste in più province),
+// ma unici per legge all'interno della stessa provincia: da qui il ref
+// composto invece del semplice slug usato per regione e provincia.
+export function comuneRef(provinciaSlug: string, comuneSlug: string) {
+  return entityRef("comune", `${provinciaSlug}/${comuneSlug}`);
+}
+
 export function partnerPageRef(userId: string) {
   return entityRef("pagina", `partner/${userId}`);
 }
