@@ -83,3 +83,98 @@ export async function getLike(ref: string): Promise<LikeSummary | null> {
     return null;
   }
 }
+
+export interface EntityRow {
+  id: number;
+  ref: string;
+  kind: string;
+  slug: string;
+  name: string;
+  urlPath: string | null;
+  parentId: number | null;
+}
+
+interface EntityDbRow {
+  id: number;
+  ref: string;
+  kind: string;
+  slug: string;
+  name: string;
+  url_path: string | null;
+  parent_id: number | null;
+}
+
+const ENTITY_SELECT = "id, ref, kind, slug, name, url_path, parent_id";
+
+function toEntity(row: EntityDbRow): EntityRow {
+  return {
+    id: row.id,
+    ref: row.ref,
+    kind: row.kind,
+    slug: row.slug,
+    name: row.name,
+    urlPath: row.url_path,
+    parentId: row.parent_id,
+  };
+}
+
+// Legge una singola entità (provincia o comune, tipicamente) dal suo ref.
+// Come le altre letture qui dentro, è fail-soft: un errore diventa "non
+// trovata" invece di far fallire la pagina che la richiede.
+export async function getEntity(ref: string): Promise<EntityRow | null> {
+  try {
+    const supabase = createPublicClient();
+    const { data, error } = await supabase
+      .from("entities")
+      .select(ENTITY_SELECT)
+      .eq("ref", ref)
+      .eq("is_active", true)
+      .maybeSingle();
+
+    if (error) throw error;
+    return data ? toEntity(data as EntityDbRow) : null;
+  } catch (error) {
+    console.error("[getEntity] lettura dell'entità fallita:", error);
+    return null;
+  }
+}
+
+export async function getEntityById(id: number): Promise<EntityRow | null> {
+  try {
+    const supabase = createPublicClient();
+    const { data, error } = await supabase
+      .from("entities")
+      .select(ENTITY_SELECT)
+      .eq("id", id)
+      .eq("is_active", true)
+      .maybeSingle();
+
+    if (error) throw error;
+    return data ? toEntity(data as EntityDbRow) : null;
+  } catch (error) {
+    console.error("[getEntityById] lettura dell'entità fallita:", error);
+    return null;
+  }
+}
+
+// Figli diretti di un'entità per un dato livello, es. i comuni di una
+// provincia. Non risale la gerarchia: parent_id punta sempre al livello
+// immediatamente superiore per provincia e comune.
+export async function getChildren(parentId: number, kind: string): Promise<EntityRow[]> {
+  try {
+    const supabase = createPublicClient();
+    const { data, error } = await supabase
+      .from("entities")
+      .select(ENTITY_SELECT)
+      .eq("parent_id", parentId)
+      .eq("kind", kind)
+      .eq("is_active", true)
+      .order("name");
+
+    if (error) throw error;
+    return ((data ?? []) as EntityDbRow[]).map(toEntity);
+  } catch (error) {
+    console.error("[getChildren] lettura dei figli fallita:", error);
+    return [];
+  }
+}
