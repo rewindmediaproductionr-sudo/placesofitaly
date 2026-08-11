@@ -96,6 +96,14 @@ Se aggiungi una regione a `lib/regions.ts`, ricordati di aggiungerla anche a
 semplicemente non riceve like), e in sviluppo la console avvisa del
 disallineamento.
 
+Se un'esecuzione parziale di `001` (capita facilmente incollando da telefono:
+sono 400+ righe) lascia il database in uno stato incerto, `002` se ne accorge
+da solo e si ferma con un messaggio chiaro invece di dare un errore criptico.
+Per ripartire da una base garantita pulita esiste
+`supabase/reset_rating_schema.sql`: cancella solo gli oggetti del sistema di
+like (mai `profiles`, `auth.users` o gli account già registrati) e va
+eseguito **prima** di `001`, mai al suo posto.
+
 ## Sviluppo
 
 ```bash
