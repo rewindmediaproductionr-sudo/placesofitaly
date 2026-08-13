@@ -74,14 +74,14 @@ export default function ToolsPage() {
             className="group flex flex-col rounded-2xl border border-black/10 p-6 transition-colors hover:border-brand-500 dark:border-white/10 dark:hover:border-brand-500"
           >
             <span className="font-display text-lg font-semibold tracking-tight">
-              Generatore post regionali
+              News regionali
             </span>
             <span className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
               Crea in pochi click post generici su eventi, luoghi e curiosità
               della tua regione, pronti per essere pubblicati.
             </span>
             <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-600 group-hover:text-brand-500 dark:text-brand-50">
-              Genera post regionali ↗
+              News regionali ↗
             </span>
           </a>
         </div>
