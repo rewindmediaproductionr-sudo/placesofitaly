@@ -19,6 +19,7 @@ const CAPTION_TEMPLATES = [
   "📍 {luogo}, {regione} — uno di quei posti che vanno visti almeno una volta. Scopri di più su Places of Italy. #PlacesOfItaly #{regioneHashtag}",
   "L'Italia raccontata da chi la vive ogni giorno 🇮🇹 Oggi vi portiamo in {regione}. #PlacesOfItaly #{regioneHashtag}",
   "Non solo cartolina: {luogo} è {aggettivo}. Seguici per scoprire tutte le regioni d'Italia. #PlacesOfItaly",
+  "🎉 {evento} a {luogo}, {regione}: un'occasione per vivere la regione da vicino. Date, orari e info su Places of Italy. #PlacesOfItaly #{regioneHashtag}",
 ];
 
 const GUIDELINES = [
@@ -61,27 +62,30 @@ export default function ToolsPage() {
       </p>
 
       <section className="mt-14">
-        <h2 className="font-display text-xl font-semibold tracking-tight">Strumenti</h2>
+        <h2 className="font-display text-xl font-semibold tracking-tight">Post generici</h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Applicazioni collegate al circuito Places of Italy.
+          Spunti pronti per raccontare eventi, luoghi e curiosità della tua
+          regione, anche senza un argomento specifico del giorno.
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <a
-            href="https://polymarket-italia.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col rounded-2xl border border-black/10 p-6 transition-colors hover:border-brand-500 dark:border-white/10 dark:hover:border-brand-500"
-          >
+          <div className="flex flex-col rounded-2xl border border-black/10 p-6 dark:border-white/10">
             <span className="font-display text-lg font-semibold tracking-tight">
-              Polymarket Italia
+              Eventi
             </span>
             <span className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-              Mercati predittivi in italiano, in un&apos;app dedicata.
+              Sagre, mostre, festival e appuntamenti in programma nella tua
+              regione: annuncia date, luoghi e come parteciparvi.
             </span>
-            <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-600 group-hover:text-brand-500 dark:text-brand-50">
-              Apri il tool ↗
+          </div>
+          <div className="flex flex-col rounded-2xl border border-black/10 p-6 dark:border-white/10">
+            <span className="font-display text-lg font-semibold tracking-tight">
+              Luoghi
             </span>
-          </a>
+            <span className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Borghi, panorami, itinerari e chicche meno conosciute da
+              raccontare con foto e contesto.
+            </span>
+          </div>
         </div>
       </section>
 
