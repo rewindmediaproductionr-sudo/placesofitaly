@@ -81,7 +81,7 @@ export default function ToolsPage() {
               della tua regione, pronti per essere pubblicati.
             </span>
             <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-600 group-hover:text-brand-500 dark:text-brand-50">
-              Apri il tool ↗
+              Genera post regionali ↗
             </span>
           </a>
         </div>
