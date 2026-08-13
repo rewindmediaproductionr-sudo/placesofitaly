@@ -84,6 +84,23 @@ export default function ToolsPage() {
               News regionali ↗
             </span>
           </a>
+          <a
+            href="https://weki-reel.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col rounded-2xl border border-black/10 p-6 transition-colors hover:border-brand-500 dark:border-white/10 dark:hover:border-brand-500"
+          >
+            <span className="font-display text-lg font-semibold tracking-tight">
+              Generatore post
+            </span>
+            <span className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              Genera post dedicati a luoghi, eventi e curiosità della tua
+              regione, pronti per essere pubblicati sui social.
+            </span>
+            <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-600 group-hover:text-brand-500 dark:text-brand-50">
+              Generatore post ↗
+            </span>
+          </a>
         </div>
       </section>
 
